@@ -2,7 +2,7 @@
   "name": "campers_for_rent",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goitacademy.github.io/campers_for_rent/",
+  "homepage": "https://HalakII.github.io/campers_for_rent/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
