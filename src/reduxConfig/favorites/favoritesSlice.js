@@ -15,7 +15,7 @@ export const favoritesSlice = createSlice({
     removeFromFavorites: (state, { payload }) => {
       const advertToRemove = payload;
       state.infoDetails = state.infoDetails.filter(
-        item => item.id !== advertToRemove.id
+        item => item._id !== advertToRemove._id
       );
     },
   },

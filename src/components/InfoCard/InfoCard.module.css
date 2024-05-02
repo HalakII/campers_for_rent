@@ -59,10 +59,10 @@
   height: 24px;
 }
 
-.heartIconActive {
+.favorIcon {
+  composes: heartIcon;
   fill: var(--button-color);
-  width: 24px;
-  height: 24px;
+  stroke: var(--button-color);
 }
 
 .ratingBox {

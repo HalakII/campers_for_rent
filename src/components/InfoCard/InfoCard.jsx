@@ -27,16 +27,19 @@ export default function InfoCard({ card }) {
     reviews,
   } = card;
 
-  const handleAddToFavorites = () => {
-    dispatch(addToFavorites(card));
-  };
-
   const handleRemoveFromFavorites = () => {
     dispatch(removeFromFavorites(card));
   };
   const isFavorite = favorites.find(function (item) {
-    return item.id === card.id;
+    return item._id === card._id;
   });
+
+  const handleAddToFavorites = () => {
+    const isAlreadyFavorite = favorites.some(item => item._id === card._id);
+    if (!isAlreadyFavorite) {
+      dispatch(addToFavorites(card));
+    }
+  };
 
   const handleShowMoreClick = () => {};
   const defaultImg =
@@ -54,8 +57,24 @@ export default function InfoCard({ card }) {
         <div className={css.titleBox}>
           <span className={css.name}>{name}</span>
           <span className={css.price}>&#8364;{price}.00</span>
-          <button
-            className={css.heartBtn}
+          {isFavorite ? (
+            <button
+              className={css.heartBtn}
+              onClick={handleRemoveFromFavorites}
+            >
+              <svg className={css.favorIcon}>
+                <use xlinkHref={`${iconsSprite}#icon-heart`} />
+              </svg>
+            </button>
+          ) : (
+            <button className={css.heartBtn} onClick={handleAddToFavorites}>
+              <svg className={css.heartIcon}>
+                <use xlinkHref={`${iconsSprite}#icon-heart`} />
+              </svg>
+            </button>
+          )}
+          {/* <button
+            className={isFavorite ? css.favorBtn : css.heartBtn}
             onClick={
               isFavorite ? handleRemoveFromFavorites : handleAddToFavorites
             }
@@ -63,7 +82,7 @@ export default function InfoCard({ card }) {
             <svg className={css.heartIcon}>
               <use xlinkHref={`${iconsSprite}#icon-heart`} />
             </svg>
-          </button>
+          </button> */}
         </div>
         <div className={css.ratingBox}>
           <svg className={css.starIcon}>
