@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.nav a {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--main-color);
+  cursor: pointer;
+}
+.nav a:focus,
+.nav a:hover {
+  color: var(--star-color);
+  text-decoration: underline;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.link {
+  font-size: 24px;
+  line-height: 1.19;
+  font-weight: 600;
+  color: var(--star-color);
+  margin-right: 260px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}

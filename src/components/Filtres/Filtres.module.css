@@ -1,0 +1,27 @@
+.filtreBox {
+  width: 360px;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  padding: 16px 40px;
+  border-radius: 200px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.08px;
+  background-color: var(--button-color);
+  color: var(--text-white);
+  /* transition: var(--transition); */
+  width: auto;
+  /* margin: 0 auto; */
+  cursor: pointer;
+}
+
+.button:focus,
+.button:hover {
+  background-color: var(--button-hover-color);
+}
