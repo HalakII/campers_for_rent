@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcampers_for_rent=self.webpackChunkcampers_for_rent||[]).push([[16],{306:function(e,r,n){n.r(r),n.d(r,{default:function(){return u}});n(791);var t=n(420),c=n(945),s=n(431),a=n(329);function u(){var e=(0,t.v9)(c.Tc);return(0,a.jsx)(a.Fragment,{children:0===e.length?(0,a.jsx)("p",{children:"There are no notes yet"}):(0,a.jsx)(s.Z,{cards:e})})}}}]);
+//# sourceMappingURL=16.e61869a0.chunk.js.map
