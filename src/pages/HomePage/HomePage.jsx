@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import css from './HomePage.module.css';
 
+
 const HomePage = () => {
   const navigate = useNavigate();
 
@@ -21,6 +22,7 @@ const HomePage = () => {
           Start
         </button>
       </section>
+     
     </main>
   );
 };

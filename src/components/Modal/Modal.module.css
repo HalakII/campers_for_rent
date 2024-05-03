@@ -1,0 +1,118 @@
+.overly {
+  background-color: rgba(18, 20, 23, 0.5);
+  backdrop-filter: blur(2px);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.modalBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 982px;
+  max-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex-shrink: 0;
+  padding: 40px;
+  border-radius: 20px;
+  background: var(--text-white);
+}
+
+.imgBox {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  gap: 16px;
+}
+
+.galleryImage {
+  /* width: 290px; */
+  height: 310px;
+  object-fit: cover;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.infoBox {
+  width: 526px;
+}
+.nameBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.titleBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.titleBox span {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.closeBtn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.closeIcon {
+  stroke: var(--main-color);
+  width: 20px;
+  height: 20px;
+}
+
+.ratingBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ratingBox p {
+  margin-right: 24px;
+}
+
+.starIcon {
+  fill: var(--star-color);
+  width: 16px;
+  height: 16px;
+}
+
+.pinIcon {
+  fill: none;
+  stroke: var(--main-color);
+  stroke-width: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.description {
+  color: var(--text-color);
+  width: 100%;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+.addBox {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}

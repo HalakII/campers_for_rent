@@ -1,60 +1,70 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import iconsSprite from '../../img/icons/sprite.svg';
+import css from './Modal.module.css';
 
-export default function Modal({ isModalOpen, children }) {
-  const dispatch = useDispatch();
+export default function Modal({ card, onClose }) {
+  const { name, price, rating, location, description, gallery, reviews } = card;
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'auto';
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') onClose();
     };
-  }, []);
-
-  useEffect(() => {
-    function handleEscPress(ev) {
-      if (ev.key === 'Escape') {
-        dispatch(isModalOpen(false));
-      }
-    }
-
-    document.addEventListener('keydown', handleEscPress);
+    window.addEventListener('keydown', handleKeyDown);
     document.body.style.overflow = 'hidden';
 
     return () => {
-      document.removeEventListener('keydown', handleEscPress);
+      window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'visible';
     };
-  }, [isModalOpen]);
+  }, [onClose]);
 
-  const handleBackdropClick = e => {
-    if (e.target === e.currentTarget) {
-      dispatch(isModalOpen(false));
-    }
+  const handleClickBackdrop = e => {
+    if (e.target === e.currentTarget) onClose();
   };
-
-  useEffect(() => {
-    function handleEscape(e) {
-      if (e.key === 'Escape') {
-        dispatch(isModalOpen(false));
-      }
-    }
-
-    document.addEventListener('keydown', handleEscape);
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, [isModalOpen]);
-
   return (
-    <div onClick={handleBackdropClick} data-backdrop>
-      <div>
-        <button
-          type="button"
-          aria-label="Close Button"
-          onClick={() => dispatch(isModalOpen(false))}
-        ></button>
-        {children}
+    <div className={css.overly} data-backdrop onClick={handleClickBackdrop}>
+      <div className={css.modalBox}>
+        <div className={css.titleBox}>
+          <div className={css.nameBox}>
+            <span className={css.name}>{name}</span>
+            <button className={css.closeBtn} onClick={onClose}>
+              <svg className={css.closeIcon}>
+                <use xlinkHref={`${iconsSprite}#icon-cross`} />
+              </svg>
+            </button>
+          </div>
+
+          <div className={css.ratingBox}>
+            <svg className={css.starIcon}>
+              <use xlinkHref={`${iconsSprite}#icon-star`} />
+            </svg>
+            <p>
+              {rating}({reviews.length} review)
+            </p>
+            <svg className={css.pinIcon}>
+              <use xlinkHref={`${iconsSprite}#icon-map-pin`} />
+            </svg>
+            <p>{location}</p>
+          </div>
+          <span className={css.price}>&#8364;{price}.00</span>
+        </div>
+        <div className={css.imgBox}>
+          {gallery.map((photo, index) => (
+            <div>
+              <img
+                key={index}
+                src={photo}
+                alt=""
+                className={css.galleryImage}
+              />
+            </div>
+          ))}
+        </div>
+        <p className={css.description}>{description}</p>
+        <div className={css.addBox}>
+          <h3>Features</h3>
+          <h3>Reviews</h3>
+        </div>
       </div>
     </div>
   );
