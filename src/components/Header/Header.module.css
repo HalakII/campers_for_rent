@@ -20,7 +20,7 @@
 .nav a:focus,
 .nav a:hover {
   color: var(--star-color);
-  text-decoration: underline;
+  /* text-decoration: underline; */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -28,7 +28,7 @@
   font-size: 24px;
   line-height: 1.19;
   font-weight: 600;
-  color: var(--star-color);
+  color: var(--button-color);
   margin-right: 260px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }

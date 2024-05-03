@@ -1,12 +1,28 @@
-import BookForm from '../../components/Form/BookForm';
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import css from './HomePage.module.css';
 
-const Home = () => {
+const HomePage = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/catalog');
+  };
+
   return (
-    <div>
-      <BookForm />
-    </div>
+    <main>
+      <section className={css.section}>
+        <div className={css.titleBox}>
+          <h1 className={css.title}>
+            Nature is my therapy, camping is my prescription. Click and go!
+          </h1>
+        </div>
+
+        <button className={css.button} onClick={handleClick}>
+          Start
+        </button>
+      </section>
+    </main>
   );
 };
 
-export default Home;
+export default HomePage;

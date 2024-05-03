@@ -6,7 +6,7 @@ const Header = () => {
     <>
       <header className={css.header}>
         <NavLink className={css.link} to="/">
-          &#x1F3D5; Happy Campers
+          Happy Campers
         </NavLink>
         <nav className={css.nav}>
           <NavLink to="/">Home</NavLink>

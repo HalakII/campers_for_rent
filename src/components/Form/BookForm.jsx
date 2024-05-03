@@ -61,9 +61,9 @@ export default function BookForm() {
             />
             <ErrorMessage className={css.error} name="email" component="span" />
           </div>
-          <div className={css.group}>
-            <Field name="date" component={DatePickerField} />
-          </div>
+
+          <Field name="date" component={DatePickerField} />
+
           <div className={css.group}>
             <Field
               className={css.textarea}
