@@ -1,0 +1,22 @@
+:global(.react-datepicker__input-container) {
+  max-width: 100%;
+  background: var(--primary-white);
+  border-radius: 10px;
+  padding: 0;
+}
+
+:global(.react-datepicker__input-container input) {
+  max-width: 100%;
+  border-radius: 10px;
+  padding: 18px;
+  border: none;
+  background: var(--primary-white);
+  outline: none;
+  color: rgba(16, 24, 40, 0.6);
+  line-height: 1.25;
+}
+
+.error {
+  font-size: 14px;
+  color: orangered;
+}
