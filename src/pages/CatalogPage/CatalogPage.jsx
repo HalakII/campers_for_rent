@@ -39,6 +39,7 @@ const Catalog = () => {
   };
 
   const isEndCollection = info.length % 4 !== 0;
+  const hidenBth = filteredCards.length < 4;
 
   useEffect(() => {
     dispatch(fetchInfoDetails(page));
@@ -54,16 +55,25 @@ const Catalog = () => {
       <div className={css.homeBox}>
         <Filtres handleSubmit={handleSubmit} />
         {filteredCards.length > 0 ? (
-          <InfoCardList cards={filteredCards} />
+          <div className={css.btnBox}>
+            <InfoCardList cards={filteredCards} />
+            {!hidenBth && (
+              <button onClick={handleClickMore} className={css.btn}>
+                Load more
+              </button>
+            )}
+          </div>
         ) : (
-          <InfoCardList cards={info} />
+          <div className={css.btnBox}>
+            <InfoCardList cards={info} />
+            {!isEndCollection && (
+              <button onClick={handleClickMore} className={css.btn}>
+                Load more
+              </button>
+            )}
+          </div>
         )}
       </div>
-      {!isEndCollection && (
-        <button onClick={handleClickMore} className={css.btn}>
-          Load more
-        </button>
-      )}
     </>
   );
 };
