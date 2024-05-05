@@ -10,7 +10,8 @@ const handlePending = state => {
 const handleFulfilledGet = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
-  state.infoDetails = payload;
+  state.infoDetails.push(...payload);
+  if (payload.length < state.limit) state.isLoadMore = false;
 };
 
 const handleRejected = (state, { payload }) => {
@@ -22,9 +23,24 @@ const handleRejected = (state, { payload }) => {
 const infoDetailsSlice = createSlice({
   name: 'infoDetails',
   initialState: {
+    page: 1,
+    limit: 4,
     infoDetails: [],
+    isLoadMore: true,
     isLoading: false,
     error: null,
+  },
+
+  reducers: {
+    incrementPage: state => {
+      state.page = state.page + 1;
+    },
+
+    resetList: state => {
+      state.cars = [];
+      state.page = 1;
+      state.isLoadMore = true;
+    },
   },
   extraReducers: builder => {
     builder
@@ -33,5 +49,7 @@ const infoDetailsSlice = createSlice({
       .addCase(fetchInfoDetails.rejected, handleRejected);
   },
 });
+
+export const { incrementPage, resetList } = infoDetailsSlice.actions;
 
 export const infoDetailsReducer = infoDetailsSlice.reducer;

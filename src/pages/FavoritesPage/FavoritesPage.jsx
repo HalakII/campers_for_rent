@@ -7,11 +7,7 @@ export default function FavoritesPage() {
   const favorites = useSelector(selectFavorites);
   return (
     <>
-      {favorites.length === 0 ? (
-        <p>There are no notes yet</p>
-      ) : (
-        <InfoCardList cards={favorites} />
-      )}
+      <InfoCardList cards={favorites} />
     </>
   );
 }

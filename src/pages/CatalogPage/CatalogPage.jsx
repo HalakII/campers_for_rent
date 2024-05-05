@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectInfo } from '../../reduxConfig/selectors';
+import { selectInfo, selectPage } from '../../reduxConfig/selectors';
 import { fetchInfoDetails } from '../../reduxConfig/infoDetails/operations';
 import InfoCardList from '../../components/InfoCardList/InfoCardList';
 import Filtres from '../../components/Filtres/Filtres';
 import css from './Catalog.module.css';
 
 const Catalog = () => {
-  const [page, setPage] = useState(1);
+  const page = useSelector(selectPage);
   const info = useSelector(selectInfo);
   const dispatch = useDispatch();
 
@@ -38,40 +38,18 @@ const Catalog = () => {
     actions.resetForm();
   };
 
-  const isEndCollection = info.length % 4 !== 0;
-  const hidenBth = filteredCards.length < 4;
-
   useEffect(() => {
     dispatch(fetchInfoDetails(page));
   }, [dispatch, page]);
-
-  const handleClickMore = () => {
-    dispatch(fetchInfoDetails(page + 1));
-    setPage(page + 1);
-  };
 
   return (
     <>
       <div className={css.homeBox}>
         <Filtres handleSubmit={handleSubmit} />
         {filteredCards.length > 0 ? (
-          <div className={css.btnBox}>
-            <InfoCardList cards={filteredCards} />
-            {!hidenBth && (
-              <button onClick={handleClickMore} className={css.btn}>
-                Load more
-              </button>
-            )}
-          </div>
+          <InfoCardList cards={filteredCards} />
         ) : (
-          <div className={css.btnBox}>
-            <InfoCardList cards={info} />
-            {!isEndCollection && (
-              <button onClick={handleClickMore} className={css.btn}>
-                Load more
-              </button>
-            )}
-          </div>
+          <InfoCardList cards={info} />
         )}
       </div>
     </>
