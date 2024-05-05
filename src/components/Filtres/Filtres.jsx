@@ -1,11 +1,11 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilteredCards } from '../../reduxConfig/selectors';
+// import { selectFilteredCards } from '../../reduxConfig/selectors';
 import {
-  selectLocation,
+  // selectLocation,
   selectTransmission,
-  selectForm,
+  // selectForm,
   selectDetails,
 } from '../../reduxConfig/filter/selectors';
 import {
@@ -20,9 +20,9 @@ import css from './Filtres.module.css';
 
 export default function Filtres() {
   const dispatch = useDispatch();
-  const location = useSelector(selectLocation);
+  // const location = useSelector(selectLocation);
   const transmission = useSelector(selectTransmission);
-  const form = useSelector(selectForm);
+  // const form = useSelector(selectForm);
   const { airConditioner, kitchen, TV, shower } = useSelector(selectDetails);
 
   const handleEquipmentFilter = (
@@ -69,7 +69,7 @@ export default function Filtres() {
   };
 
   const handleSubmit = (values, actions) => {
-    const { location, type, equipment } = values;
+    const { location, type } = values;
 
     dispatch(setLocation(location.toLowerCase()));
     dispatch(setForm(getTypeForm(type)));

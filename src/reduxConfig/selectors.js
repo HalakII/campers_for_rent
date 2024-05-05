@@ -1,10 +1,10 @@
-import { createSelector } from '@reduxjs/toolkit';
-import {
-  selectLocation,
-  selectTransmission,
-  selectForm,
-  selectDetails,
-} from './filter/selectors';
+// import { createSelector } from '@reduxjs/toolkit';
+// import {
+//   selectLocation,
+//   selectTransmission,
+//   selectForm,
+//   selectDetails,
+// } from './filter/selectors';
 
 export const selectInfo = state => state.infoDetails.infoDetails;
 
