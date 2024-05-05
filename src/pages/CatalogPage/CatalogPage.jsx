@@ -11,7 +11,8 @@ const Catalog = () => {
   const info = useSelector(selectInfo);
   const dispatch = useDispatch();
 
-  const [setSearchFilters] = useState({
+  // eslint-disable-next-line no-unused-vars
+  const [searchFilters, setSearchFilters] = useState({
     location: '',
     type: '',
     equipment: [],
@@ -19,18 +20,18 @@ const Catalog = () => {
   const [filteredCards, setFilteredCards] = useState(info);
 
   const handleSubmit = ({ location, type, equipment }, actions) => {
-    const searchFilters = {
+    const searchQuery = {
       location: location.toLowerCase(),
       type: type.toLowerCase(),
       equipment: equipment.map(item => item.toLowerCase()),
     };
-    setSearchFilters(searchFilters);
+    setSearchFilters(searchQuery);
 
     const filtered = info.filter(
       ({ location, form, details, transmission }) =>
-        location.toLowerCase().includes(searchFilters.location) &&
-        form.includes(searchFilters.type) &&
-        (transmission + [details]).includes(searchFilters.equipment)
+        location.toLowerCase().includes(searchQuery.location) &&
+        form.includes(searchQuery.type) &&
+        (transmission + [details]).includes(searchQuery.equipment)
     );
 
     setFilteredCards(filtered);
