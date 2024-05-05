@@ -121,9 +121,7 @@
   letter-spacing: -0.08px;
   background-color: var(--button-color);
   color: var(--text-white);
-  /* transition: var(--transition); */
   width: auto;
-  /* margin: 0 auto; */
   cursor: pointer;
 }
 

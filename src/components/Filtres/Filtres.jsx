@@ -1,101 +1,9 @@
-// import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
-// import { selectFilteredCards } from '../../reduxConfig/selectors';
-import {
-  // selectLocation,
-  selectTransmission,
-  // selectForm,
-  selectDetails,
-} from '../../reduxConfig/filter/selectors';
-import {
-  setLocation,
-  setTransmission,
-  setForm,
-  setDetails,
-} from '../../reduxConfig/filter/filterSlice';
 import iconsSprite from '../../img/icons/sprite.svg';
 
 import css from './Filtres.module.css';
 
-export default function Filtres() {
-  const dispatch = useDispatch();
-  // const location = useSelector(selectLocation);
-  const transmission = useSelector(selectTransmission);
-  // const form = useSelector(selectForm);
-  const { airConditioner, kitchen, TV, shower } = useSelector(selectDetails);
-
-  const handleEquipmentFilter = (
-    transmissionValue,
-    isTVIncluded,
-    isShowerIncluded,
-    isACIncluded,
-    isKitchenIncluded
-  ) => {
-    let equipment = [];
-
-    if (transmissionValue) {
-      equipment.push(transmissionValue);
-    }
-
-    if (isTVIncluded) {
-      equipment.push('TV');
-    }
-
-    if (isShowerIncluded) {
-      equipment.push('Shower');
-    }
-    if (isKitchenIncluded) {
-      equipment.push('Kitchen');
-    }
-    if (isACIncluded) {
-      equipment.push('AC');
-    }
-
-    return equipment;
-  };
-
-  const getTypeForm = type => {
-    switch (type) {
-      case 'van':
-        return 'van';
-      case 'fully':
-        return 'fully_integrated';
-      case 'alcove':
-        return 'alcove';
-      default:
-        return null;
-    }
-  };
-
-  const handleSubmit = (values, actions) => {
-    const { location, type } = values;
-
-    dispatch(setLocation(location.toLowerCase()));
-    dispatch(setForm(getTypeForm(type)));
-
-    const equipmentArray = handleEquipmentFilter(
-      transmission,
-      TV,
-      shower,
-      airConditioner,
-      kitchen
-    );
-    dispatch(setDetails(equipmentArray));
-
-    dispatch(setTransmission(transmission));
-
-    actions.resetForm();
-  };
-
-  // console.log('Filtered Cards:', filteredCards);
-
-  // const handleSubmit = (values, actions) => {
-  //   // dispatch(setLocation(values.location.toLowerCase()));
-  //   console.log(values);
-  //   actions.resetForm();
-  // };
-
+export default function Filtres({ handleSubmit }) {
   return (
     <div className={css.filtreBox}>
       <Formik
@@ -111,7 +19,12 @@ export default function Filtres() {
             <label htmlFor="location" className={css.textLabel}>
               Location
             </label>
-            <Field id="location" type="text" name="location" />
+            <Field
+              id="location"
+              type="text"
+              name="location"
+              placeholder="Kyiv, Ukraine"
+            />
           </div>
           <p className={css.text}>Filters</p>
           <h3 className={css.title}>Vehicle equipment</h3>

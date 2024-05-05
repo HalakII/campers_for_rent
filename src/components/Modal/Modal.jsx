@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import iconsSprite from '../../img/icons/sprite.svg';
-
+import ModalDetails from '../ModalDetails/ModalDetails';
 import Reviewes from '../Reviews/Reviwes';
 import BookingForm from 'components/Form/BookingForm';
 import css from './Modal.module.css';
@@ -13,12 +13,8 @@ export default function Modal({ card, onClose }) {
     rating,
     location,
     description,
-    adults,
-    engine,
-    transmission,
     gallery,
     reviews,
-    details,
     form,
     length,
     width,
@@ -28,9 +24,11 @@ export default function Modal({ card, onClose }) {
   } = card;
 
   const vehicleDetails = { form, length, width, height, tank, consumption };
+
   const handleSelect = index => {
     setSelectedTab(index);
   };
+
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') onClose();
@@ -47,6 +45,7 @@ export default function Modal({ card, onClose }) {
   const handleClickBackdrop = e => {
     if (e.target === e.currentTarget) onClose();
   };
+
   return (
     <div className={css.overly} data-backdrop onClick={handleClickBackdrop}>
       <div className={css.modalBox}>
@@ -109,84 +108,7 @@ export default function Modal({ card, onClose }) {
         <div className={css.container}>
           {selectedTab === 0 && (
             <div className={css.featuresBox}>
-              <ul className={css.infoList}>
-                <li>
-                  <svg>
-                    <use xlinkHref={`${iconsSprite}#icon-adults`} />
-                  </svg>
-                  <p>{adults} adults</p>
-                </li>
-                <li>
-                  <svg>
-                    <use xlinkHref={`${iconsSprite}#icon-transmission`} />
-                  </svg>
-                  <p>
-                    {transmission.charAt(0).toUpperCase() +
-                      transmission.slice(1)}
-                  </p>
-                </li>
-                <li>
-                  {details.airConditioner ? (
-                    <>
-                      <svg>
-                        <use xlinkHref={`${iconsSprite}#icon-airConditioner`} />
-                      </svg>
-                      <p>AC</p>
-                    </>
-                  ) : (
-                    <p>No AC</p>
-                  )}
-                </li>
-                <li>
-                  <svg>
-                    <use xlinkHref={`${iconsSprite}#icon-engine`} />
-                  </svg>
-                  <p>{engine.charAt(0).toUpperCase() + engine.slice(1)}</p>
-                </li>
-                <li>
-                  {details.kitchen ? (
-                    <>
-                      <svg className={css.starIcon}>
-                        <use xlinkHref={`${iconsSprite}#icon-kitchen`} />
-                      </svg>
-                      <p>Kitchen</p>
-                    </>
-                  ) : (
-                    <p>No kitchen </p>
-                  )}
-                </li>
-                <li>
-                  <svg>
-                    <use xlinkHref={`${iconsSprite}#icon-beds`} />
-                  </svg>
-                  <p>{details.beds} beds</p>
-                </li>
-                <li>
-                  <svg>
-                    <use xlinkHref={`${iconsSprite}#icon-airConditioner`} />
-                  </svg>
-                  <p>{details.airConditioner} air conditioner</p>
-                </li>
-                <li>
-                  <svg>
-                    <use xlinkHref={`${iconsSprite}#icon-cd`} />
-                  </svg>
-                  <p>CD</p>
-                </li>
-                <li>
-                  <svg>
-                    <use xlinkHref={`${iconsSprite}#icon-radio`} />
-                  </svg>
-                  <p>Radio</p>
-                </li>
-                <li>
-                  <svg>
-                    <use xlinkHref={`${iconsSprite}#icon-plate`} />
-                  </svg>
-                  <p>{details.hob} hob</p>
-                </li>
-              </ul>
-
+              <ModalDetails card={card} />
               <h3 className={css.detTitle}>Vehicle details</h3>
 
               <ul className={css.detailList}>

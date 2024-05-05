@@ -2,11 +2,22 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchInfoDetails } from './operations';
 
-import {
-  handlePending,
-  handleFulfilledGet,
-  handleRejected,
-} from './handleFunctionReduser.js';
+const handlePending = state => {
+  state.isLoading = true;
+  state.error = null;
+};
+
+const handleFulfilledGet = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = null;
+  state.infoDetails = payload;
+};
+
+const handleRejected = (state, { payload }) => {
+  console.error('Error:', payload);
+  state.isLoading = false;
+  state.error = payload;
+};
 
 const infoDetailsSlice = createSlice({
   name: 'infoDetails',
@@ -24,4 +35,3 @@ const infoDetailsSlice = createSlice({
 });
 
 export const infoDetailsReducer = infoDetailsSlice.reducer;
-

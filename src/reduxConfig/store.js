@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { infoDetailsReducer } from './infoDetails/infoDetailsSlice';
 import { favoritesReducer } from './favorites/favoritesSlice';
-import { filtersReducer } from './filter/filterSlice';
 import storage from 'redux-persist/lib/storage';
+
 import {
   persistStore,
   persistReducer,
@@ -23,7 +23,6 @@ const favoritesPersistConfig = {
 export const store = configureStore({
   reducer: {
     infoDetails: infoDetailsReducer,
-    filters: filtersReducer,
     favorites: persistReducer(favoritesPersistConfig, favoritesReducer),
   },
   middleware: getDefaultMiddleware =>

@@ -1,4 +1,3 @@
-import React from 'react';
 import InfoCard from 'components/InfoCard/InfoCard';
 import css from './InfoCardList.module.css';
 
