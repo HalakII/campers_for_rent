@@ -24,6 +24,7 @@ export default function Filtres({ handleSubmit }) {
               type="text"
               name="location"
               placeholder="Kyiv, Ukraine"
+              className={css.inputStyle}
             />
           </div>
           <p className={css.text}>Filters</p>

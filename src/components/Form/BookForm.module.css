@@ -85,3 +85,19 @@
 .button:hover {
   background-color: var(--button-hover-color);
 }
+
+.picker {
+  position: relative;
+}
+
+.dataIcon {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Змініть це значення відповідно до вашого дизайну */
+  transform: translateY(-50%);
+  fill: none;
+  stroke: var(--main-color);
+  stroke-width: 1.5px;
+  width: 15px;
+  height: 15px;
+}

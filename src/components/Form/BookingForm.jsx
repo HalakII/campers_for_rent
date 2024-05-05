@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import DatePickerField from '../DataPicker/DatePicker';
-
+import iconsSprite from '../../img/icons/sprite.svg';
 import 'react-datepicker/dist/react-datepicker.css';
 import css from './BookForm.module.css';
 
@@ -61,8 +61,12 @@ export default function BookForm() {
             />
             <ErrorMessage className={css.error} name="email" component="span" />
           </div>
-
-          <Field name="date" component={DatePickerField} />
+          <div className={css.picker}>
+            <Field name="date" component={DatePickerField} />
+            <svg className={css.dataIcon}>
+              <use xlinkHref={`${iconsSprite}#icon-schedule`} />
+            </svg>
+          </div>
 
           <div className={css.group}>
             <Field
