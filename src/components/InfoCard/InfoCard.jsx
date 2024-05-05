@@ -82,8 +82,8 @@ export default function InfoCard({ card }) {
             <svg className={css.starIcon}>
               <use xlinkHref={`${iconsSprite}#icon-star`} />
             </svg>
-            <p>
-              {rating}({reviews.length} review)
+            <p className={css.ratingText}>
+              {rating}({reviews.length} Reviews)
             </p>
             <svg className={css.pinIcon}>
               <use xlinkHref={`${iconsSprite}#icon-map-pin`} />

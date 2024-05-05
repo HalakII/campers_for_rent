@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import DatePickerField from '../DataPicker/DatePicker';
+import iconsSprite from '../../img/icons/sprite.svg';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import css from './BookForm.module.css';

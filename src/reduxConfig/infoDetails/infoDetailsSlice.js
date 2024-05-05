@@ -24,4 +24,4 @@ const infoDetailsSlice = createSlice({
 });
 
 export const infoDetailsReducer = infoDetailsSlice.reducer;
-console.log(infoDetailsSlice);
+

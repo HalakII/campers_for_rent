@@ -1,13 +1,119 @@
 .filtreBox {
   width: 360px;
+  display: flex;
+  flex-direction: column;
 }
+
+.locationBox {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.locationBox input {
+  padding: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary-white);
+}
+.textLabel {
+  color: rgba(16, 24, 40, 0.6);
+  font-weight: 500;
+}
+.text {
+  composes: textLabel;
+  margin-bottom: 14px;
+}
+.title {
+  position: relative;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 48px;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(16, 24, 40, 0.1);
+}
+
+.equipmentBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+.label {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 95px;
+  padding: 0 10px;
+  width: 90px;
+  border-color: var(--main-color);
+}
+
+.label p {
+  text-align: center;
+  line-height: 1.25;
+  color: var(--main-color);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.checkbox {
+  display: none;
+}
+
+.icon {
+  fill: none;
+  stroke: var(--main-color);
+  width: 32px;
+  height: 32px;
+}
+
+.wraper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+}
+
+.wraper:focus,
+.wraper:hover {
+  border-color: var(--button-hover-color) !important;
+}
+
+.vanBox {
+  composes: equipmentBox;
+  margin-bottom: 64px;
+}
+.radioBtn {
+  display: none;
+}
+
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border: none;
-  padding: 16px 40px;
+  padding: 16px 60px;
   border-radius: 200px;
   font-size: 16px;
   font-weight: 500;

@@ -12,7 +12,6 @@ export default function FavoritesPage() {
       ) : (
         <InfoCardList cards={favorites} />
       )}
-     
     </>
   );
 }

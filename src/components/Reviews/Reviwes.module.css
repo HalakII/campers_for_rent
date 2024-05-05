@@ -1,0 +1,52 @@
+.reviewsList {
+  width: 100%;
+}
+
+.reviewsList li {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background: var(--secondary-white);
+  color: var(--button-color);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-right: 16px;
+}
+.name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name p {
+  margin-bottom: 4px;
+}
+.box {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.starBox {
+  display: flex;
+  margin-bottom: 14px;
+}
+
+.starIcon {
+  fill: var(--star-color);
+  width: 16px;
+  height: 16px;
+}
+
+.text {
+  color: var(--text-color);
+  text-align: justify;
+}

@@ -3,3 +3,28 @@
   gap: 64px;
   flex-direction: row;
 }
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  border: 1px solid rgba(71, 84, 103, 0.2);
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.08px;
+  background-color: var(--text-white);
+  color: var(--main-color);
+  margin-top: 50px;
+  width: auto;
+  margin-left: 780px;
+  cursor: pointer;
+}
+
+.btn:focus,
+.btn:hover {
+  border-color: var(--button-hover-color);
+}
