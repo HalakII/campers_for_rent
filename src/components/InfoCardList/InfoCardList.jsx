@@ -4,8 +4,9 @@ import { selectIsLoadMore } from '../../reduxConfig/selectors';
 import InfoCard from 'components/InfoCard/InfoCard';
 import css from './InfoCardList.module.css';
 
-export default function InfoCardList({ cards }) {
+export default function InfoCardList({ cards, isFavorites = false }) {
   const isLoadMore = useSelector(selectIsLoadMore);
+
   const dispatch = useDispatch();
 
   const handleClickMore = () => {
@@ -18,7 +19,7 @@ export default function InfoCardList({ cards }) {
           {cards.map(card => (
             <InfoCard key={card._id} id={card._id} card={card} />
           ))}
-          {cards.length > 0 && isLoadMore && (
+          {cards.length > 0 && !isFavorites && isLoadMore && (
             <button onClick={handleClickMore} className={css.btn}>
               Load more
             </button>
