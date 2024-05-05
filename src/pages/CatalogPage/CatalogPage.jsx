@@ -11,7 +11,7 @@ const Catalog = () => {
   const info = useSelector(selectInfo);
   const dispatch = useDispatch();
 
-  const [searchFilters, setSearchFilters] = useState({
+  const [setSearchFilters] = useState({
     location: '',
     type: '',
     equipment: [],
