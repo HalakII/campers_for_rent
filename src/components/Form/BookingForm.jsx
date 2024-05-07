@@ -16,13 +16,13 @@ const UserSchema = Yup.object().shape({
   date: Yup.date()
     .required()
     .min(new Date(), 'The date should be in the future'),
-  comment: Yup.string().max(256, 'Max 256 chars!!!').required('Is required!!!'),
+  comment: Yup.string().max(256, 'Max 256 chars!!!'),
 });
 
 export default function BookForm() {
-  const handleSubmit = (values, actions) => {
-    console.log('handleSubmit', values);
-    actions.resetForm();
+  const handleSubmit = (values, { setSubmitting }) => {
+    setSubmitting(false);
+    window.location.reload();
   };
 
   return (

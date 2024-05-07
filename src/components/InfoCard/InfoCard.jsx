@@ -148,7 +148,7 @@ export default function InfoCard({ card }) {
           </button>
         </div>
       </li>
-      {isShowModal && <Modal onClose={toggleModal} card={card}></Modal>}
+      {isShowModal && <Modal onClose={toggleModal} card={card} />}
     </>
   );
 }

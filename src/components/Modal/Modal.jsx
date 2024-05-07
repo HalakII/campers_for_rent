@@ -73,64 +73,66 @@ export default function Modal({ card, onClose }) {
           </div>
           <span className={css.price}>&#8364;{price}.00</span>
         </div>
-        <div className={css.imgBox}>
-          {gallery.map((photo, index) => (
-            <div>
-              <img
-                key={index}
-                src={photo}
-                alt=""
-                className={css.galleryImage}
-              />
-            </div>
-          ))}
-        </div>
-        <div lassName={css.scrollableText}>
+
+        <div className={css.scrollableText}>
+          <div className={css.imgBox}>
+            {gallery.map((photo, index) => (
+              <div>
+                <img
+                  key={index}
+                  src={photo}
+                  alt=""
+                  className={css.galleryImage}
+                />
+              </div>
+            ))}
+          </div>
+
           <p className={css.description}>{description}</p>
-        </div>
 
-        <div className={css.addBox}>
-          <button
-            onClick={() => handleSelect(0)}
-            className={
-              selectedTab === 0 ? `${css.button} ${css.active}` : css.button
-            }
-          >
-            Features
-          </button>
-          <button
-            onClick={() => handleSelect(1)}
-            className={
-              selectedTab === 1 ? `${css.button} ${css.active}` : css.button
-            }
-          >
-            Reviews
-          </button>
-        </div>
-        <div className={css.container}>
-          {selectedTab === 0 && (
-            <div className={css.featuresBox}>
-              <ModalDetails card={card} />
-              <h3 className={css.detTitle}>Vehicle details</h3>
+          <div className={css.addBox}>
+            <button
+              onClick={() => handleSelect(0)}
+              className={
+                selectedTab === 0 ? `${css.button} ${css.active}` : css.button
+              }
+            >
+              Features
+            </button>
+            <button
+              onClick={() => handleSelect(1)}
+              className={
+                selectedTab === 1 ? `${css.button} ${css.active}` : css.button
+              }
+            >
+              Reviews
+            </button>
+          </div>
+          <div className={css.container}>
+            {selectedTab === 0 && (
+              <div className={css.featuresBox}>
+                <ModalDetails card={card} />
+                <h3 className={css.detTitle}>Vehicle details</h3>
 
-              <ul className={css.detailList}>
-                {Object.entries(vehicleDetails).map(([key, value], index) => (
-                  <li key={index}>
-                    <p>{key}</p>
-                    <p>{value}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+                <ul className={css.detailList}>
+                  {Object.entries(vehicleDetails).map(([key, value], index) => (
+                    <li key={index}>
+                      <p>{key}</p>
+                      <p>{value}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-          {selectedTab === 1 && (
-            <div className={css.reviewesBox}>
-              <Reviewes card={card} />
-            </div>
-          )}
+            {selectedTab === 1 && (
+              <div className={css.reviewesBox}>
+                <Reviewes card={card} />
+              </div>
+            )}
 
-          <BookingForm />
+            <BookingForm />
+          </div>
         </div>
       </div>
     </div>
