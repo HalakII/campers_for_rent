@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import iconsSprite from '../../img/icons/sprite.svg';
+import iconsSprite from '../assets/icons/sprite.svg';
 import ModalDetails from '../ModalDetails/ModalDetails';
 import Reviewes from '../Reviews/Reviwes';
 import BookingForm from 'components/Form/BookingForm';
@@ -85,7 +85,9 @@ export default function Modal({ card, onClose }) {
             </div>
           ))}
         </div>
-        <p className={css.description}>{description}</p>
+        <div lassName={css.scrollableText}>
+          <p className={css.description}>{description}</p>
+        </div>
 
         <div className={css.addBox}>
           <button

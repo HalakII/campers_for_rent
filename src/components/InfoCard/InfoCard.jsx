@@ -6,7 +6,7 @@ import {
   addToFavorites,
   removeFromFavorites,
 } from '../../reduxConfig/favorites/favoritesSlice';
-import iconsSprite from '../../img/icons/sprite.svg';
+import iconsSprite from '../assets/icons/sprite.svg';
 import css from './InfoCard.module.css';
 import Modal from '../Modal/Modal';
 

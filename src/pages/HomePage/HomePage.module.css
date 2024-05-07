@@ -12,7 +12,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(../../img/img/img.jpeg);
+  background-image: url(../../components/assets/img/img.jpeg);
 }
 .button {
   display: flex;

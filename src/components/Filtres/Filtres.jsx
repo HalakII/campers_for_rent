@@ -1,5 +1,5 @@
 import { Formik, Form, Field } from 'formik';
-import iconsSprite from '../../img/icons/sprite.svg';
+import iconsSprite from '../assets/icons/sprite.svg';
 
 import css from './Filtres.module.css';
 
@@ -23,7 +23,7 @@ export default function Filtres({ handleSubmit }) {
               id="location"
               type="text"
               name="location"
-              placeholder="Kyiv, Ukraine"
+              placeholder="City"
               className={css.inputStyle}
             />
           </div>

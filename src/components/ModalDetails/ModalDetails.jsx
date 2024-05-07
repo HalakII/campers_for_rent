@@ -1,5 +1,5 @@
 import React from 'react';
-import iconsSprite from '../../img/icons/sprite.svg';
+import iconsSprite from '../assets/icons/sprite.svg';
 import css from '../Modal/Modal.module.css';
 
 export default function ModalDetails({ card }) {
