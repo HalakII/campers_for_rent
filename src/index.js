@@ -5,6 +5,7 @@ import { store } from './reduxConfig/store';
 import { App } from 'components/App';
 import { BrowserRouter } from 'react-router-dom';
 import '../src/styles/index.css';
+import 'typeface-inter';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <>

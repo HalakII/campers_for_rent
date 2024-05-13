@@ -60,7 +60,7 @@ export default function InfoCard({ card }) {
         <div className={css.infoBox}>
           <div className={css.titleBox}>
             <span className={css.name}>{name}</span>
-            <span className={css.price}>&#8364;{price}.00</span>
+            <span className={css.price}>&#8364;{price.toFixed(2)}</span>
             {isFavorite ? (
               <button
                 className={css.heartBtn}

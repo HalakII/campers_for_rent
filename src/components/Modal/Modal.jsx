@@ -71,7 +71,7 @@ export default function Modal({ card, onClose }) {
             </svg>
             <p>{location}</p>
           </div>
-          <span className={css.price}>&#8364;{price}.00</span>
+          <span className={css.price}>&#8364;{price.toFixed(2)}</span>
         </div>
 
         <div className={css.scrollableText}>

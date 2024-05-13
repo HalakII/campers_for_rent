@@ -10,6 +10,7 @@ const Catalog = () => {
   const page = useSelector(selectPage);
   const info = useSelector(selectInfo);
   const dispatch = useDispatch();
+  console.log(info);
 
   // eslint-disable-next-line no-unused-vars
   const [searchFilters, setSearchFilters] = useState({
@@ -18,10 +19,12 @@ const Catalog = () => {
     equipment: [],
   });
   const [filteredCards, setFilteredCards] = useState(info);
+  console.log('ввів:', searchFilters);
+  console.log('вивів:', filteredCards);
 
   const handleSubmit = ({ location, type, equipment }, actions) => {
     const searchQuery = {
-      location: location.toLowerCase(),
+      location: location.trim().toLowerCase(),
       type: type.toLowerCase(),
       equipment: equipment.map(item => item.toLowerCase()),
     };
@@ -31,11 +34,11 @@ const Catalog = () => {
       ({ location, form, details, transmission }) =>
         location.toLowerCase().includes(searchQuery.location) &&
         form.includes(searchQuery.type) &&
-        (transmission + [details]).includes(searchQuery.equipment)
+        (transmission + { details }).includes(searchQuery.equipment)
     );
 
     setFilteredCards(filtered);
-    actions.resetForm();
+    // actions.resetForm();
   };
 
   useEffect(() => {
